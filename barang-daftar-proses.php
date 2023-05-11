@@ -16,7 +16,7 @@ if(!empty($_POST))
 
     $sql_simpan = "INSERT INTO barang (nama_barang,kod_jenama,harga,ciri,gambar,nokp_staff) VALUES
     ('".$_POST['nama']."','".$_POST['kod_jenama']."','".$_POST['harga']."','".$_POST['ciri']."','".$nama_baru."','".$_SESSION
-    ['nokp']."',)";
+    ['nokp']."')";
 
     $laksanaa_sql=mysqli_query($condb,$sql_simpan);
     if($laksana_query)
