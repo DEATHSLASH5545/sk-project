@@ -22,10 +22,10 @@ if(!empty($_POST))
     if($laksana_query)
     {
         move_uploaded_file($lokasi,"img/".$nama_baru);
-        die("<script>alert('pendaftaran berjaya'); window.history.href='senari-barang.php';</script>");
+        die("<script>alert('pendaftaran berjaya'); window.location.href='senari-barang.php';</script>");
     }else{
         die("<script>alert('pendaftaran gagal'); window.history.back();</script>");
     }
 }else{
-    die("<script>alert('sila lengakapkan maklumat'); window.history.href='barang-signup-borang.php';</script>");
+    die("<script>alert('sila lengakapkan maklumat'); window.location.href='barang-signup-borang.php';</script>");
 }
