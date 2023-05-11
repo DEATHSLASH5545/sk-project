@@ -18,8 +18,8 @@ if(!empty($_POST))
     ('".$_POST['nama']."','".$_POST['kod_jenama']."','".$_POST['harga']."','".$_POST['ciri']."','".$nama_baru."','".$_SESSION
     ['nokp']."')";
 
-    $laksanaa_sql=mysqli_query($condb,$sql_simpan);
-    if($laksana_query)
+    $laksana_sql=mysqli_query($condb,$sql_simpan);
+    if($laksana_sql)
     {
         move_uploaded_file($lokasi,"img/".$nama_baru);
         die("<script>alert('pendaftaran berjaya'); window.location.href='senari-barang.php';</script>");
