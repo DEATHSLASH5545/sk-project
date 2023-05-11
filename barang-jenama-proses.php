@@ -3,7 +3,7 @@ session_start();
 if(!empty($_POST))
 {
     include('connection.php');
-    $sql_simpan="INSERT INTO jenama (kod_jenama,jenama_barang VALUES (
+    $sql_simpan="INSERT INTO jenama (kod_jenama,jenama_barang) VALUES (
         '".$_POST['kod_jenama']."','".$_POST['jenama_barang']."')";
         $laksana_query= mysqli_query($condb,$sql_simpan);
         if($laksana_query){
