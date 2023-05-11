@@ -12,8 +12,8 @@ if(!empty($_POST['nokp']) and !empty($_POST['katalaluan']))
     if(mysqli_num_rows($laksana_query)==1)
     {
         $m = mysqli_fetch_array($laksana_query);
-        $_SESSSION['nokp'] = $m['nokp_staff'];
-        $_SESSSION['tahap'] = "staff";
+        $_SESSION['nokp'] = $m['nokp_staff'];
+        $_SESSION['tahap'] = "staff";
         echo "<script>window.location.href='index.php';</script>";
     }
     else
