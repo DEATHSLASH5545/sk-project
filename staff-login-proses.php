@@ -18,11 +18,11 @@ if(!empty($_POST['nokp']) and !empty($_POST['katalaluan']))
     }
     else
     {
-        die("<script>alert('login Gagal'); window.location.href='staff-login-barang.php';</script>");
+        die("<script>alert('login Gagal'); window.location.href='staff-login-borang.php';</script>");
     }
 }
 else
 {
-    die("<script>alert('sila masukkan nokp dan katalaluan'); window.location.href='staff-login-barang.php';</script>");
+    die("<script>alert('sila masukkan nokp dan katalaluan'); window.location.href='staff-login-borang.php';</script>");
 }
 ?>
