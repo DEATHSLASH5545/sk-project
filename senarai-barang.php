@@ -31,7 +31,7 @@ if (!empty($_POST['jenama']))
 $arahan_papar="SELECT* FROM barang, jenama, staff
 WHERE
       barang.kod_jenama = jenama.kod_jenama
-and   barang.nokp_staff = staff.mokp_staff
+and   barang.nokp_staff = staff.nokp_staff
       $tambahan
 ORDER BY barang.kod_jenama DESC ";
 $laksana = mysqli_query($condb,$arahan_papar);
