@@ -13,7 +13,7 @@ include('connection.php');
             <?php
                 $sql_jenama = "select * from jenama order by jenama_barang";
                 $laksana_carian = mysqli_query($condb,$sql_jenama);
-                while($n=mysqli_fetch_array($laksana_carian)){echo "<option value='".$m['jenama_barang']."'>".$m['jenama_barang']."</option>";
+                while($n=mysqli_fetch_array($laksana_carian)){echo "<option value='".$n['jenama_barang']."'>".$n['jenama_barang']."</option>";
                 }
             ?>
         </select> <input type='submit' value='Papar'>
