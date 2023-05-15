@@ -1,20 +1,47 @@
 <?php
+# memulakan fungsi session
 session_start();
-include('guard-staff');
-if(!empty($_POST)){
+
+# memanggil fail guard-staff.php include('guard-staff.php');
+
+# menyemak kewujudan data POST
+if(!empty($_POST))
+{
+    # memanggil fail connection.php
     include('connection.php');
-    if($_POST['harga']<=0){
-        die('<script>alert("ralat makluamat"); window.history.back();</script>');
-    }
-    $arahan="UPDATE barang SET harga='".$_POST['harga']."', nokp_staff='".$_SESSION['nokp']."' WHERE kod_barang='".$_GET['kod_barang_lama']."'";
-    if(mysqli_query($condb,$arahan)){
-        echo "<script>alert('kemaskini berjaya'); window.location.href='senarai-barang.php';</script>";
-    }
-    else{
-        echo "<script>alert('kemaskini gagal'); window.history.back();</script>";
-    }
     
-}else {
-    die("<script>alert('sila lengkapkan maklumat'); window.location.href='senarai-barang.php';</script>");
+    # pengesahan data (validation)
+    if($_POST['harga'] <= 0)
+    {
+        die("<script>alert('Ralat maklumat');
+        window.history.back();</script>");
+    }
+    # arahan SQL (query) untuk kemaskini maklumat barang
+    $arahan     =   "update barang set
+    harga           =   '".$_POST['harga']."',
+    nokp_staff      =   '".$_SESSION['nokp']."'
+    where
+    kod_barang      =   '".$_GET['kod_barang_lama']."' ";
+    
+    # melaksana dan menyemak proses kemaskini
+    if(mysqli_query($condb,$arahan))
+    {
+        # kemaskini berjaya
+        echo "<script>alert('Kemaskini Berjaya');
+        window.location.href='senarai-barang.php';</script>";
+    }
+    else
+    {
+        
+        # kemaskini gagal
+        echo "<script>alert('kemaskini Gagal');
+        window.history.back();</script>";
+    }
+}
+else
+{
+    #data POST empty
+    die("<script>alert('sila lengkapkan data');
+    window.location.href='senarai-barang.php';</script>");
 }
 ?>

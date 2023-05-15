@@ -1,20 +1,34 @@
 <?php
+# memulakan fungsi session 
 session_start();
+
+# menyemak kewujudan data GET nokp pembeli
 if(!empty($_GET))
 {
+    # memanggil fail connection.php
     include('connection.php');
-    $arahan = 'delete from pembeli where nokp_pembeli='.$_GET['nokp'];
-    if(mysqli_query($condb,$arahan))
+
+    # arahan untuk memadam data pembeli berdasarkan nokp yang dihantar(GET)
+    $arahan = "delete from pembeli where nokp_pembeli='".$_GET['nokp']."'";
+
+    # melaksanakan arahan dan menguji proses padam rekod
+    if(mysqli_query($condb,$arahan)) 
     {
-        echo "<script>alert('Padam data Berjaya'); window.location.href='senarai-pembeli.php';</script>";
+        # jika data berjaya dipadam. papar popup dan buka fail senarai-pembeli.php
+        echo "<script>alert('Padam data Berjaya');
+        window.location.href='senarai-pembeli.php';</script>";
     }
     else
-    {
-        echo "<script>alert('Padam data Gagal'); window.location.href='senarai-pembeli.php';</script>";
+    {   
+        # jika data gagal dipadam.papar popup dan buka fail senarai-pembeli.php 
+        echo "<script>alert('Padam data gagal');
+        window.location.href='senarai-pembeli.php';</script>";
     }
 }
 else
 {
-    die("<script>alert('Ralat! akses secara terus'); window.location.href='senarai-pembeli.php';</script>");
+    # jika data GET tidak wujud (empty). papar popup dan buka fail senarai-pembeli.php 
+    die("<script>alert('Ralat! akses secara terus');
+    window.location.href='senarai-pembeli.php';</script>");
 }
 ?>
