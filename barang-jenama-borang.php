@@ -16,6 +16,7 @@ include('guard-staff.php');
     Kod jenama      <input type ='text'     name ='kod_jenama'      required> <br>
     Jenama Barang   <input type ='text'     name ='jenama_barang'   required> <br>
                     <input type ='submit'   value='Daftar'>
+                    <button onclick="window.history.back()">Batal</button>
 
 </form> 
 <?php include ('footer.php');?>

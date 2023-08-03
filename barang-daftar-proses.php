@@ -19,7 +19,7 @@ if(!empty($_POST))
     # proses ini lebih kepada menukar nama fail gambar
     $timestmp           =   date("Y-m-d-His");
     $nama_fail          =   basename($_FILES["gambar"]["name"]);
-    $format_gambar      =   pathinfo($nama_fail,PATHINFO_EXTENSION);
+    $format_gambar      =   pathinfo($nama_fail, PATHINFO_EXTENSION);
     $lokasi             =   $_FILES['gambar']['tmp_name'];
     $nama_baru          =   $timestmp.".".$format_gambar;
 
@@ -30,7 +30,7 @@ if(!empty($_POST))
       '".$_POST['ciri']."', '$nama_baru', '".$_SESSION['nokp']."' ) ";
     
     # melaksanakan arahan SQL menyimpan barang baru
-    $laksana_sql = mysqli_query($condb,$sql_simpan);
+    $laksana_sql = mysqli_query($condb, $sql_simpan);
 
     # menyemak proses melaksanakan berjaya atau tidak
     if($laksana_sql)

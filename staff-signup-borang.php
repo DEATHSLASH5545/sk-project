@@ -13,7 +13,7 @@ include('header.php');
 <form action = 'staff-signup-proses.php' method = 'POST'>
 
     Nama staff     <input type ='text'     name ='nama'       required> <br>
-    NoKp staff     <input type ='text'     name ='nokp'       required> <br>
+    NoKp staff     <input type ='text'     name ='nokp'       required maxlength="12" minlength="12"> <br>
     Katalaluan     <input type ='password' name ='katalaluan' required> <br>
                    <input type ='submit'   value='Daftar'>
 

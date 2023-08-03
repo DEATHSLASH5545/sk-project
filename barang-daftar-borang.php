@@ -17,7 +17,7 @@ enctype='multipart/form-data'>
 
     Nama barang     <input type ='text' name ='nama' required> <br>
     Jenama          <select name='kod_jenama' required>
-                        <option selected disabled>Sila pilih jenama</option>
+                        <option selected disabled value="">Sila pilih jenama</option>
 
 <?php
 $sql_jenama = "select * from jenama order by jenama_barang";

@@ -20,7 +20,8 @@ if(!empty($_POST))
     if($laksana_query)
     {
         # jenama berjaya disimpan
-        die("<script>alert('Pendaftaran Berjaya.'); window.location.href='barang-daftar-borang.php'; </script>");
+        die("<script>alert('Pendaftaran Berjaya.'); 
+        window.location.href='barang-daftar-borang.php'; </script>");
     }
     else
     {

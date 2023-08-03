@@ -8,6 +8,24 @@ include('connection.php');
 include('guard-staff.php');
 ?>
 
+<style>
+    .hapus:hover {
+        background-color: #660000;
+    }
+
+    .hapus {
+        border: none;
+        box-shadow: none;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: #880000;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+</style>
+
 <h3 >Senarai pembeli</h3>
 <!-- Boarang carian nama pembeli --> 
 <form action='' method='POST'>
@@ -54,13 +72,20 @@ $laksana = mysqli_query($condb,$arahan_papar);
         # memaparkan navigasi untuk hapus data pembeli
         echo"<td>
 
-        |<a href='pembeli-padam-proses.php?nokp=".$m['nokp_pembeli']."'
-        onClick=\"return confirm('Anda pasti anda ingin memadam data ini.')\">
-        Hapus</a>|
-
+        <button class='hapus' onclick=\"return confirmFirst('Anda pasti anda ingin memadam data ini.', 'pembeli-padam-proses.php?nokp=".$m['nokp_pembeli']."')\">Hapus</button>
+        
         </td>
         </tr>";
     }
 ?>
 </table>
+
+<script>
+    function confirmFirst(question, redirect) {
+        let res = confirm(question)
+        if (res && redirect) {
+            location.href = redirect
+        }
+    }
+</script>
 <?php include ('footer.php'); ?>

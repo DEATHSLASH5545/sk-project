@@ -7,8 +7,43 @@ include('header.php');
 include('connection.php');
 ?>
 
-<hr>
+<style>
+    .main-content {
+        margin: auto;
+        width: 70%;
+    }
+
+    .container {
+        width: 50%;
+        height: auto;
+        display: inline-block;
+    }
+
+    #ad1, #ad2 {
+        width: 100%;
+        display: inline-block;
+        transition: all 2s ease-in;
+    }
+
+    .animated {
+        animation: fadeIn 2s;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+</style>
 <h3>Tawaran Telefon Bimbit Termurah</h3>
+
+<div class="container">
+    <div id="ad1">
+        <img id="mainImg" src="img/advert1.png">
+    </div>
+</div>
+
+
 <?php
     # arahan SQL untuk memaparkan secara rawak
     # 10 barangan yang ada dalam pangkalan data
@@ -31,7 +66,7 @@ include('connection.php');
         echo"<hr>";
         # jika terdapat barangan yang ditemui 
         # papar dalam bentuk jadual.
-        echo "<table border='1'>";
+        echo "<table border='1' class='main-content'>";
 
         # Pembolehubah $n mengambil data yang ditemui
         while($n=mysqli_fetch_array($laksana_pilihan)){
@@ -50,4 +85,16 @@ echo " <tr>
         echo"</table>";
     }
 ?>
+
+<script>
+    let current = "ad1"
+    setInterval(() => {
+        document.querySelector(".container").classList.add("animated")
+        let newImg = current === "ad1" ? "advert2" : "advert1"
+        let mainImg = document.querySelector("#mainImg")
+        mainImg.src = `img/${newImg}.png`
+        current = current === "ad1" ? "ad2" : "ad1"
+        setTimeout(() => { document.querySelector(".container").classList.remove("animated") }, 2000)
+    }, 5000)
+</script>
 <?php include ('footer.php'); ?>

@@ -8,6 +8,41 @@ include('connection.php');
 include('guard-staff.php');
 ?>
 
+<style>
+    .kemaskini {
+        border: none;
+        box-shadow: none;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: #008800;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .kemaskini:hover {
+        background-color: #006600;
+    }
+
+    .hapus:hover {
+        background-color: #660000;
+    }
+
+    .hapus {
+        border: none;
+        box-shadow: none;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: #880000;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+
+</style>
+
 <h3 >Senarai staff</h3>
 
 | <a href='staff-signup-borang.php'>Daftar Staff Baru</a>
@@ -52,16 +87,21 @@ $laksana = mysqli_query($condb,$arahan_papar);
 
         # memaparkan navigasi untuk kemaskini dan hapus data staff
         echo"<td>
-        |<a href='staff-kemaskini-borang.php?".http_build_query($data_get)."'>
-        Kemaskini</a>
-
-        |<a href='staff-padam-proses.php?nokp=".$m['nokp_staff']."'
-        onClick=\"return confirm('Anda pasti anda ingin memadam data ini.')\">
-
-        Hapus</a>|
+        <button class='kemaskini' onclick=\"location.href='staff-kemaskini-borang.php?".http_build_query($data_get)."'\">Kemaskini</button>
+        <button class='hapus' onclick=\"confirmFirst('Anda pasti anda ingin memadam data ini.', 'staff-padam-proses.php?nokp=".$m['nokp_staff']."');\">Hapus</button>
+        
+        
         </td>
         </tr>";
     }
     ?>
     </table>
+    <script>
+        function confirmFirst(question, redirect) {
+            let res = confirm(question)
+            if (res && redirect) {
+                location.href = redirect
+            }
+        }
+    </script>
     <?php include ('footer.php'); ?>

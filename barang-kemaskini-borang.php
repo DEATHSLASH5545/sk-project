@@ -24,7 +24,7 @@ if(empty($_GET)) {
 <form action='barang-kemaskini-proses.php?kod_barang_lama=
 <?= $_GET['kod_barang'] ?>' method='POST'>
 
-<img src='img/<?= $_GET['gambar'] ?> width='10%'> <br>
+<img src='img/<?= $_GET['gambar'] ?>' width='10%'> <br>
 Jenama Barang :     <?= $_GET['jenama_barang'] ?> <br>
 Nama Barang   :     <?= $_GET['nama_barang'] ?> <br>
 Ciri          :     <?= $_GET['ciri'] ?> <br>
